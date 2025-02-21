@@ -1,0 +1,28 @@
+<select id="country" onchange="populateStates()">
+    <option value="USA">USA</option>
+    <option value="India">India</option>
+    <option value="UK">UK</option>
+  </select>
+  
+  <select id="state"></select>
+  
+  <script>
+  function populateStates() {
+    const country = document.getElementById("country").value;
+    const stateDropdown = document.getElementById("state");
+    stateDropdown.innerHTML = '';
+  
+    const states = {
+      USA: ["California", "Texas", "New York"],
+      India: ["Delhi", "Maharashtra", "Karnataka"],
+      UK: ["England", "Scotland", "Wales"]
+    };
+  
+    states[country].forEach(state => {
+      const option = document.createElement("option");
+      option.textContent = state;
+      stateDropdown.appendChild(option);
+    });
+  }
+  </script>
+  

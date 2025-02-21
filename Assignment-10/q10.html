@@ -1,0 +1,21 @@
+<input type="text" id="todoInput">
+<button id="addButton">Add</button>
+
+<ul id="todoList"></ul>
+
+<script>
+document.getElementById("addButton").addEventListener("click", function() {
+  const todoText = document.getElementById("todoInput").value;
+  if (todoText) {
+    const li = document.createElement("li");
+    li.textContent = todoText;
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", function() {
+      li.remove();
+    });
+    li.appendChild(removeButton);
+    document.getElementById("todoList").appendChild(li);
+  }
+});
+</script>

@@ -1,0 +1,18 @@
+<textarea id="textarea" oninput="countWordsAndChars()"></textarea>
+<p>Word Count: <span id="wordCount">0</span></p>
+<p>Character Count: <span id="charCount">0</span></p>
+
+<script>
+function countWordsAndChars() {
+  const text = document.getElementById("textarea").value;
+  const wordCount = text.trim().split(/\s+/).length;
+  const charCount = text.length;
+
+  document.getElementById("wordCount").textContent = wordCount;
+  document.getElementById("charCount").textContent = charCount;
+
+  if (charCount > 200) {
+    alert("Character limit exceeded!");
+  }
+}
+</script>

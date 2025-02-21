@@ -1,0 +1,31 @@
+<form id="pizzaForm">
+    <fieldset>
+      <legend>Pizza Size</legend>
+      <input type="radio" name="size" value="Small" id="small"> Small
+      <input type="radio" name="size" value="Medium" id="medium"> Medium
+      <input type="radio" name="size" value="Large" id="large"> Large
+    </fieldset>
+  
+    <fieldset>
+      <legend>Toppings</legend>
+      <input type="checkbox" name="topping" value="Cheese"> Cheese
+      <input type="checkbox" name="topping" value="Pepperoni"> Pepperoni
+      <input type="checkbox" name="topping" value="Mushrooms"> Mushrooms
+      <input type="checkbox" name="topping" value="Olives"> Olives
+    </fieldset>
+  
+    <button type="button" onclick="showOrder()">Submit</button>
+  </form>
+  
+  <script>
+  function showOrder() {
+    const size = document.querySelector('input[name="size"]:checked').value;
+    const toppings = [];
+    document.querySelectorAll('input[name="topping"]:checked').forEach(function (checkbox) {
+      toppings.push(checkbox.value);
+    });
+  
+    alert("You ordered a " + size + " pizza with the following toppings: " + toppings.join(", "));
+  }
+  </script>
+  
